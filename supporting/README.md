@@ -10,6 +10,7 @@
 |--------|:-----:|:------:|:-----:|
 | [API Hacking Methodology (Recon to Exploitation)](./api-methodology.md) | — | ⬜ | [📖](./api-methodology.md) |
 | [Tools (Burp, Postman, ffuf, JWT Tooling)](./tools.md) | — | ⬜ | [📖](./tools.md) |
+| [API Endpoint Analysis](./api-endpoint-analysis.md) | — | ⬜ | [📖](./api-endpoint-analysis.md) |
 
 ## 🎯 Domain Goal
 
