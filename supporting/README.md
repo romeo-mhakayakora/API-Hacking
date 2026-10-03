@@ -8,9 +8,9 @@
 
 | Module | OWASP | Status | Notes |
 |--------|:-----:|:------:|:-----:|
-| [API Hacking Methodology (Recon to Exploitation)](./api-methodology.md) | — | ⬜ | [📖](./api-methodology.md) |
-| [Tools (Burp, Postman, ffuf, JWT Tooling)](./tools.md) | — | ⬜ | [📖](./tools.md) |
-| [API Endpoint Analysis](./api-endpoint-analysis.md) | — | ⬜ | [📖](./api-endpoint-analysis.md) |
+| [API Hacking Methodology (Recon to Exploitation)](./01-api-methodology.md) | — | ⬜ | [📖](./01-api-methodology.md) |
+| [API Endpoint Analysis](./02-api-endpoint-analysis.md) | — | ⬜ | [📖](./02-api-endpoint-analysis.md) |
+| [Tools (Burp, Postman, ffuf, JWT Tooling)](./03-tools.md) | — | ⬜ | [📖](./03-tools.md) |
 
 ## 🎯 Domain Goal
 

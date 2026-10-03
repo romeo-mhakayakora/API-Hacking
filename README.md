@@ -42,8 +42,8 @@ flowchart TB
     end
     subgraph SUPPORTING ["🧰 — Supporting Skills"]
         MET["⬜ API Hacking Methodology"]
-        TLS["⬜ Tools"]
         EPA["⬜ Endpoint Analysis"]
+        TLS["⬜ Tools"]
     end
 
     D1 --- 01_ACCESS_CONTROL
@@ -61,9 +61,9 @@ flowchart TB
     click MIS href "./03-posture-consumption/security-misconfiguration.md"
     click INV href "./03-posture-consumption/improper-inventory-management.md"
     click CON href "./03-posture-consumption/unsafe-api-consumption.md"
-    click MET href "./supporting/api-methodology.md"
-    click TLS href "./supporting/tools.md"
-    click EPA href "./supporting/api-endpoint-analysis.md"
+    click MET href "./supporting/01-api-methodology.md"
+    click EPA href "./supporting/02-api-endpoint-analysis.md"
+    click TLS href "./supporting/03-tools.md"
 ```
 
 ### Legend
@@ -133,9 +133,9 @@ flowchart TB
 
 | Module | OWASP | Status | Notes |
 |--------|:-----:|:------:|:-----:|
-| [API Hacking Methodology (Recon to Exploitation)](./supporting/api-methodology.md) | — | ⬜ | [📖](./supporting/api-methodology.md) |
-| [Tools (Burp, Postman, ffuf, JWT Tooling)](./supporting/tools.md) | — | ⬜ | [📖](./supporting/tools.md) |
-| [API Endpoint Analysis](./supporting/api-endpoint-analysis.md) | — | ⬜ | [📖](./supporting/api-endpoint-analysis.md) |
+| [API Hacking Methodology (Recon to Exploitation)](./supporting/01-api-methodology.md) | — | ⬜ | [📖](./supporting/01-api-methodology.md) |
+| [API Endpoint Analysis](./supporting/02-api-endpoint-analysis.md) | — | ⬜ | [📖](./supporting/02-api-endpoint-analysis.md) |
+| [Tools (Burp, Postman, ffuf, JWT Tooling)](./supporting/03-tools.md) | — | ⬜ | [📖](./supporting/03-tools.md) |
 
 
 ## 🧭 Suggested Order
