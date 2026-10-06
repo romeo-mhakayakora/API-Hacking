@@ -4,7 +4,7 @@
 >
 > Three domains → individual vulnerabilities → technical notes → practical labs → API penetration testing.
 
-> [⬅ My Hacking Hub](https://github.com/romeo-mhakayakora/CPTS) · [🌐 CPTS Notes Site](https://romeo-mhakayakora.github.io/CPTS/)
+> [⬅ My Hacking Hub](https://github.com/romeo-mhakayakora/Hacking-Hub) · [🌐 CPTS Notes Site](https://romeo-mhakayakora.github.io/CPTS/)
 
 ---
 
