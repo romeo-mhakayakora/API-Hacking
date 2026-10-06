@@ -104,7 +104,7 @@ This applies to both attack types equally.
 
 ---
 
-## 📚 Resources
+## 📚 Further Learning
 
 - [PortSwigger Web Security Academy — Authentication labs](https://portswigger.net/web-security/all-labs#authentication)
 - [Hack The Box Academy — Module 80](https://academy.hackthebox.com/app/module/80)
