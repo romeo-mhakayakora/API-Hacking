@@ -101,3 +101,12 @@ This applies to both attack types equally.
 | Burp attack type | Sniper | Cluster Bomb |
 | Beats | No/weak lockout | Lockout policies |
 | Primary tool | WFuzz / Intruder | Burp Intruder |
+
+---
+
+## 📚 Resources
+
+- [PortSwigger Web Security Academy — Authentication labs](https://portswigger.net/web-security/all-labs#authentication)
+- [Hack The Box Academy — Module 80](https://academy.hackthebox.com/app/module/80)
+- [TryHackMe — Web Application Pentesting path (Authentication section)](https://tryhackme.com/path/outline/webapppentesting)
+- [APIsec University — API Penetration Testing](https://university.apisec.ai/products/api-penetration-testing/categories/2150251352)
