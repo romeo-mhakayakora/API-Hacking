@@ -6,6 +6,31 @@
 
 ---
 
+## The IAAA Model (Foundation Before the Lifecycle)
+
+Authentication and authorization sound similar and are frequently confused, but they're distinct controls that map onto different stages of session management. The full model has four parts:
+
+### Identification
+The user *claims* an identity — typically by submitting a username or email. No proof yet, just a claim.
+
+### Authentication
+The user *proves* that claimed identity — e.g., by supplying the correct password. Once the application validates this, **session creation** kicks in. Authentication is the gate that session creation sits behind.
+
+### Authorisation
+Once identity is established, authorisation determines *what that identity is allowed to do* — e.g., all users can view data, but only some can modify it. This is where **session tracking** becomes critical: on every request, the server must not just confirm "who is this session" but also "what is this session permitted to do." A tracking flaw that resolves identity but mishandles permissions is an authorisation failure riding on a session bug.
+
+### Accountability
+A record of what each session actually did. Every request should be logged alongside the session that made it, so that in the event of an incident, actions can be reconstructed and attributed. Without this, even a well-secured session system leaves no trail to investigate abuse after the fact.
+
+### Why this matters for session management specifically
+- **Authentication → Session Creation**: proving identity is the trigger that creates the session in the first place.
+- **Authorisation → Session Tracking**: every tracked request must be checked not just for "whose session is this" but "is this session allowed to do this."
+- **Accountability → Logging**: requests and their associated session values must be logged, so incidents can be pieced together after the fact.
+
+This distinction matters offensively: a **broken authentication** issue (weak login, credential stuffing) is a different bug class from a **broken authorisation** issue (a valid, authenticated session that can act beyond its permitted scope, e.g., IDOR, privilege escalation via session reuse). Many session attacks exploit the gap between the two — the session proves *who* you are without re-verifying *what you're allowed to do* on every action.
+
+---
+
 ## Why Sessions Exist
 HTTP is stateless — it has no memory between requests. Sessions are the mechanism that fakes continuity: instead of resending credentials on every request, the server issues a session identifier that the client resends to prove "I'm still the same authenticated user." Every session attack ultimately targets this illusion — convincing the server that an attacker *is* the legitimate continuity.
 
@@ -54,6 +79,7 @@ Any weakness at any one stage breaks the whole session security model, independe
 - **No binding to client context** — session not tied to IP, user-agent, or device fingerprint, making a stolen value fully portable to an attacker's machine.
 - **Session puzzling/confusion** — application mixes session variables across different authentication contexts, letting an attacker reach a state meant for a different flow.
 - **Predictable tracking tokens reused across requests without re-validation** — allows long-term hijacking once captured.
+- **Authorisation not re-checked per request** — session confirms identity but the app fails to verify permissions on each action, enabling IDOR/privilege escalation through a perfectly valid session.
 
 ### Session Expiry
 - **No server-side expiry enforcement** — lifetime checked only client-side (e.g., JS timer) and bypassable by replaying the raw session value.
