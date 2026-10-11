@@ -29,6 +29,7 @@ flowchart TB
         AUTH["⬜ Broken Authentication"]
         CRED["🔄 Authentication Attacks"]
         TOK["🔄 Token Attacks"]
+        PWR["🔄 Password Reset Logic"]
         BOPLA["⬜ Broken Object Property Level Authorization"]
         BFLA["⬜ Broken Function Level Authorization"]
     end
@@ -57,6 +58,7 @@ flowchart TB
     click AUTH href "./01-access-control/broken-authentication.md"
     click CRED href "./01-access-control/authentication-attacks.md"
     click TOK href "./01-access-control/token-attacks.md"
+    click PWR href "./01-access-control/password-reset-logic.md"
     click BOPLA href "./01-access-control/bopla.md"
     click BFLA href "./01-access-control/bfla.md"
     click RES href "./02-abuse-logic/unrestricted-resource-consumption.md"
@@ -104,6 +106,7 @@ flowchart TB
 | [Broken Authentication](./01-access-control/broken-authentication.md) | API2:2023 | ⬜ | [📖](./01-access-control/broken-authentication.md) |
 | [Authentication Attacks](./01-access-control/authentication-attacks.md) | API2:2023 | 🔄 | [📖](./01-access-control/authentication-attacks.md) |
 | [Token Attacks](./01-access-control/token-attacks.md) | API2:2023 | 🔄 | [📖](./01-access-control/token-attacks.md) |
+| [Password Reset Logic](./01-access-control/password-reset-logic.md) | API2:2023 | 🔄 | [📖](./01-access-control/password-reset-logic.md) |
 | [Broken Object Property Level Authorization (Mass Assignment)](./01-access-control/bopla.md) | API3:2023 | ⬜ | [📖](./01-access-control/bopla.md) |
 | [Broken Function Level Authorization](./01-access-control/bfla.md) | API5:2023 | ⬜ | [📖](./01-access-control/bfla.md) |
 

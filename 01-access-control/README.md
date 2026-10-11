@@ -12,6 +12,7 @@
 | [Broken Authentication](./broken-authentication.md) | API2:2023 | ⬜ | [📖](./broken-authentication.md) |
 | [Authentication Attacks](./authentication-attacks.md) | API2:2023 | 🔄 | [📖](./authentication-attacks.md) |
 | [Token Attacks](./token-attacks.md) | API2:2023 | 🔄 | [📖](./token-attacks.md) |
+| [Password Reset Logic](./password-reset-logic.md) | API2:2023 | 🔄 | [📖](./password-reset-logic.md) |
 | [Broken Object Property Level Authorization (Mass Assignment)](./bopla.md) | API3:2023 | ⬜ | [📖](./bopla.md) |
 | [Broken Function Level Authorization](./bfla.md) | API5:2023 | ⬜ | [📖](./bfla.md) |
 
