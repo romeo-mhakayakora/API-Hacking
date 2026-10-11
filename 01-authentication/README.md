@@ -1,6 +1,6 @@
-# 01 — 🔐 Authentication & Access Control
+# 01 — 🔐 Authentication
 
-> Proving identity (auth) and enforcing what that identity can do (access control) — the two are inseparable.
+> Proving identity: credentials, tokens, and reset flows.
 >
 > [⬅ Back to API Hacking Dashboard](../README.md)
 
@@ -8,26 +8,21 @@
 
 | Module | OWASP | Status | Notes |
 |--------|:-----:|:------:|:-----:|
-| [Broken Object Level Authorization (BOLA)](./bola.md) | API1:2023 | ⬜ | [📖](./bola.md) |
 | [Broken Authentication](./broken-authentication.md) | API2:2023 | ⬜ | [📖](./broken-authentication.md) |
 | [Authentication Attacks](./authentication-attacks.md) | API2:2023 | 🔄 | [📖](./authentication-attacks.md) |
 | [Token Attacks](./token-attacks.md) | API2:2023 | 🔄 | [📖](./token-attacks.md) |
 | [Password Reset Logic](./password-reset-logic.md) | API2:2023 | 🔄 | [📖](./password-reset-logic.md) |
-| [Broken Object Property Level Authorization (Mass Assignment)](./bopla.md) | API3:2023 | ⬜ | [📖](./bopla.md) |
-| [Broken Function Level Authorization](./bfla.md) | API5:2023 | ⬜ | [📖](./bfla.md) |
 
 ## 🎯 Domain Goal
 
 ```text
-Endpoint
+Credentials
       ↓
-Identifier / Role
+Token Issued
       ↓
-Authorization Check
+Identity Proven
       ↓
-Bypass
-      ↓
-Unauthorized Access
+Session Established
 ```
 
 ## Readiness Checklist

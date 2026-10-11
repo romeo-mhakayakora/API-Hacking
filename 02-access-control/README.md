@@ -1,6 +1,6 @@
-# 03 — 🧱 Posture & Consumption
+# 02 — 🔐 Access Control
 
-> Configuration, inventory, and trusting third parties.
+> Enforcing what an authenticated identity is allowed to do.
 >
 > [⬅ Back to API Hacking Dashboard](../README.md)
 
@@ -8,20 +8,22 @@
 
 | Module | OWASP | Status | Notes |
 |--------|:-----:|:------:|:-----:|
-| [Security Misconfiguration](./security-misconfiguration.md) | API8:2023 | ⬜ | [📖](./security-misconfiguration.md) |
-| [Improper Inventory Management (Shadow APIs)](./improper-inventory-management.md) | API9:2023 | ⬜ | [📖](./improper-inventory-management.md) |
-| [Unsafe Consumption of APIs](./unsafe-api-consumption.md) | API10:2023 | ⬜ | [📖](./unsafe-api-consumption.md) |
+| [Broken Object Level Authorization (BOLA)](./bola.md) | API1:2023 | ⬜ | [📖](./bola.md) |
+| [Broken Object Property Level Authorization (Mass Assignment)](./bopla.md) | API3:2023 | ⬜ | [📖](./bopla.md) |
+| [Broken Function Level Authorization](./bfla.md) | API5:2023 | ⬜ | [📖](./bfla.md) |
 
 ## 🎯 Domain Goal
 
 ```text
-Deployment / Integration
+Authenticated Request
       ↓
-Misconfig / Blind Spot
+Object / Function
       ↓
-Exposure
+Authorization Check
       ↓
-Compromise
+Bypass
+      ↓
+Unauthorized Access
 ```
 
 ## Readiness Checklist
