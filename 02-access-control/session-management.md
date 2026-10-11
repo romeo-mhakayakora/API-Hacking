@@ -93,4 +93,86 @@ Any weakness at any one stage breaks the whole session security model, independe
 
 ---
 
+## Cookies vs. Tokens — Session Management
+
+### Core Distinction: Who Controls Attachment?
+The single most important difference between cookies and tokens isn't where they're stored — it's **who decides to send them on a given request**:
+- **Cookies** → the browser decides, automatically, based on domain and cookie attributes. No client-side code required.
+- **Tokens (e.g., JWT in LocalStorage)** → JavaScript decides, manually pulling the value from storage and attaching it as a header (commonly `Authorization: Bearer <token>`).
+
+This single difference is the root cause of which attack class each is exposed to.
+
+---
+
+## Cookie-Based Session Management
+
+**Mechanism:** Server sends `Set-Cookie: session=12345;` in a response. The browser stores it and automatically attaches it to future requests matching the cookie's domain/attributes — no app code involved.
+
+**Security-relevant attributes:**
+| Attribute | What it does |
+|---|---|
+| `Secure` | Cookie only sent over verified HTTPS; dropped on HTTP or cert errors |
+| `HttpOnly` | Blocks client-side JS from reading the cookie value |
+| `Expire` | Sets cookie lifetime; browser removes it after |
+| `SameSite` | Controls whether the cookie is sent on cross-site requests |
+
+**Issue:** Because the browser attaches the cookie automatically to *any* request to the matching domain — regardless of which site initiated that request — an attacker's site can trigger a request that silently carries the victim's valid session.
+
+**Worked example (CSRF):**
+> You are logged into `your-bank.com`. You visit a hacker's site, `evil-site.com`, which has a hidden script submitting a POST request to `your-bank.com/transfer-money`. Because your browser sees a request going to `your-bank.com`, it automatically says "I have a cookie for that!" and attaches your login cookie. The bank thinks you made the request, and the money is stolen.
+
+**Attack vector (CSRF):** Attacker hosts a page with a hidden form/script that submits a request to the target domain (e.g., a funds-transfer endpoint). Victim's browser, seeing the request is headed to a domain it holds a cookie for, attaches the session cookie automatically. The target server processes it as a legitimate authenticated request.
+**Strategy:** When you see a cookie-based session, check for missing/weak CSRF protections immediately — specifically `SameSite` attribute and anti-CSRF tokens. These are the two controls standing between "browser does this automatically" and actual exploitation.
+
+**Mitigation — SameSite (how it stops the example above):**
+If the bank's auth cookie has a `SameSite` rule applied, the browser recognizes the request is heading to `your-bank.com` but was *initiated* by `evil-site.com` — not the same site — and strips the cookie before sending. The bank receives the transfer command with no credentials attached, and rejects it.
+
+- `Strict` — cookie sent only on same-site navigation/requests (maximum security, but breaks cross-site link-click login persistence — e.g., a friend texts you a bank link, you click it, you're not logged in).
+- `Lax` (modern default) — blocks cookie on cross-site background requests (forms, AJAX, images) but allows it on top-level navigation (clicking a link). Stops CSRF while preserving UX — the friend's link still logs you in.
+- `None` — cookie sent everywhere, cross-site included; requires `Secure` flag; used deliberately for embeddable widgets (payment forms, video embeds, "Like" buttons).
+
+**How to check if SameSite is enabled (practical testing):**
+1. **Browser DevTools:** F12 → Application (Chrome/Edge) or Storage (Firefox) tab → Cookies → inspect the `SameSite` column. `Lax`/`Strict` = explicitly set; blank = not set by developer (though modern Chrome defaults blank to `Lax` — still flag as a finding since relying on browser defaults isn't robust practice).
+2. **Raw HTTP traffic (pentester method):** Capture the login response in Burp Suite or DevTools Network tab, inspect the `Set-Cookie` header directly:
+   - Missing: `Set-Cookie: session_id=12345abcd; Secure; HttpOnly`
+   - Present: `Set-Cookie: session_id=12345abcd; Secure; HttpOnly; SameSite=Lax`
+
+**Reporting framing:** Finding = "Missing SameSite Attribute on Session Cookie." Risk = older browsers may still permit CSRF; relying on modern-browser defaults isn't a robust control. Recommendation = explicitly set `SameSite=Lax` or `Strict` on all sensitive session/auth cookies.
+
+**Issue (secondary):** Cookies are domain-locked, making them awkward in decentralized/multi-domain architectures.
+
+---
+
+## Token-Based Session Management
+
+**Mechanism:** After authentication, the server returns a token (commonly a JWT) in the response body. Client-side JS stores it (typically LocalStorage/SessionStorage) and must manually attach it to every subsequent request as a header. Nothing happens automatically — if the JS doesn't do it, the token isn't sent.
+
+**Issue:** Because the token lives in LocalStorage and is accessible to any JS running on the page, it's only as safe as the page's defenses against malicious script execution.
+
+**Worked example (XSS → token theft):**
+> If a hacker finds a way to inject malicious JavaScript into your actual web application — for example, by leaving a comment containing a malicious script — that script runs in the victim's browser. Because the token is accessible via JavaScript (`localStorage.getItem('token')`), the hacker's injected script simply reads the token and sends it to their own server. They have now stolen your identity.
+> (If the value were instead an `HttpOnly` cookie, JavaScript would be physically blocked from reading it, preventing this specific theft method.)
+
+**Attack vector (XSS → token theft):** If an attacker can inject JavaScript into the application (e.g., via a stored XSS in a comment field), that script runs with full access to `localStorage.getItem('token')` and can exfiltrate it to an attacker-controlled server — full identity theft, no cookie/CSRF mechanics involved.
+**Strategy:** When you see tokens stored in LocalStorage, immediately pivot your assessment toward **XSS**, not CSRF — that's the actual exposure here.
+
+**Why tokens resist CSRF:**
+> If a hacker on `evil-site.com` tries to force your browser to make a request to `your-bank.com`, the browser will send the request, but it will not attach the token. The hacker's website cannot read your LocalStorage due to the Same-Origin Policy. The bank rejects the request as unauthorized.
+
+**Benefit:** Works well in decentralized/multi-domain apps since the token is JS-managed and can be self-contained (e.g., a JWT carrying its own claims), rather than being tied to a single cookie domain.
+**Drawback:** No automatic browser-enforced protections exist for tokens (no `Secure`, `HttpOnly`, `SameSite` equivalents) — safeguarding against disclosure is entirely the application's responsibility; there's no standard forcing consistent practice ("the wild west").
+
+---
+
+## Summary Cheat Sheet
+
+| Storage Method | Who attaches it to requests? | Vulnerable to CSRF? | Vulnerable to token theft via XSS? |
+|---|---|---|---|
+| Cookies | Browser (automatically) | Yes (unless `SameSite` set) | No (if `HttpOnly` set) |
+| Tokens (LocalStorage) | JavaScript (manually, via headers) | No | Yes |
+
+**Vulnerability-assessment triage rule:** Session in a cookie → check `SameSite` + anti-CSRF tokens. Session in LocalStorage/JS-managed token → check for XSS.
+
+---
+
 [⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
