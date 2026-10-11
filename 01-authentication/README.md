@@ -12,6 +12,7 @@
 | [Authentication Attacks](./authentication-attacks.md) | API2:2023 | 🔄 | [📖](./authentication-attacks.md) |
 | [Token Attacks](./token-attacks.md) | API2:2023 | 🔄 | [📖](./token-attacks.md) |
 | [Password Reset Logic](./password-reset-logic.md) | API2:2023 | 🔄 | [📖](./password-reset-logic.md) |
+| [HTTP Authentication](./http-authentication.md) | API2:2023 | 🔄 | [📖](./http-authentication.md) |
 
 ## 🎯 Domain Goal
 
