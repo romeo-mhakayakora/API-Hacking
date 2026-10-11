@@ -15,7 +15,7 @@
 ```mermaid
 flowchart TB
     API["🔌 API HACKING<br/>OWASP API Top 10"]
-    D1["🔐 ACCESS CONTROL<br/>⬜"]
+    D1["🔐 AUTH & ACCESS CONTROL<br/>⬜"]
     D2["♻️ ABUSE & LOGIC<br/>⬜"]
     D3["🧱 POSTURE & CONSUMPTION<br/>⬜"]
     SUP["🧰 SUPPORTING<br/>⬜"]
@@ -24,7 +24,7 @@ flowchart TB
     API --> D1 & D2 & D3
     D1 & D2 & D3 --> SUP --> PENT
 
-    subgraph 01_ACCESS_CONTROL ["01 — 🔐 Access Control"]
+    subgraph 01_ACCESS_CONTROL ["01 — 🔐 Authentication & Access Control"]
         BOLA["⬜ Broken Object Level Authorization"]
         AUTH["⬜ Broken Authentication"]
         CRED["🔄 Authentication Attacks"]
@@ -87,7 +87,7 @@ flowchart TB
 
 | Domain | OWASP Coverage | Status | Entry Point |
 |--------|:--------------:|:------:|-------------|
-| 🔐 Access Control | API1, API2, API3, API5 | ⬜ | [Open →](./01-access-control/) |
+| 🔐 Authentication & Access Control | API1, API2, API3, API5 | ⬜ | [Open →](./01-access-control/) |
 | ♻️ Abuse & Logic | API4, API6, API7 | ⬜ | [Open →](./02-abuse-logic/) |
 | 🧱 Posture & Consumption | API8, API9, API10 | ⬜ | [Open →](./03-posture-consumption/) |
 | 🧰 Supporting Skills | — | ⬜ | [Open →](./supporting/) |
@@ -96,9 +96,9 @@ flowchart TB
 
 ---
 
-## 01 — 🔐 Access Control
+## 01 — 🔐 Authentication & Access Control
 
-> Who can access what: objects, functions, properties. → [Domain README](./01-access-control/README.md)
+> Proving identity (auth) and enforcing what that identity can do (access control) — the two are inseparable. → [Domain README](./01-access-control/README.md)
 
 | Module | OWASP | Status | Notes |
 |--------|:-----:|:------:|:-----:|

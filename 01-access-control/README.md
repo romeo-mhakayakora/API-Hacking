@@ -1,6 +1,6 @@
-# 01 — 🔐 Access Control
+# 01 — 🔐 Authentication & Access Control
 
-> Who can access what: objects, functions, properties.
+> Proving identity (auth) and enforcing what that identity can do (access control) — the two are inseparable.
 >
 > [⬅ Back to API Hacking Dashboard](../README.md)
 
