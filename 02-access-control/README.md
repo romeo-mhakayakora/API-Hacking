@@ -11,6 +11,7 @@
 | [Broken Object Level Authorization (BOLA)](./bola.md) | API1:2023 | ⬜ | [📖](./bola.md) |
 | [Broken Object Property Level Authorization (Mass Assignment)](./bopla.md) | API3:2023 | ⬜ | [📖](./bopla.md) |
 | [Broken Function Level Authorization](./bfla.md) | API5:2023 | ⬜ | [📖](./bfla.md) |
+| [Session Management](./session-management.md) | API2:2023 | 🔄 | [📖](./session-management.md) |
 
 ## 🎯 Domain Goal
 
