@@ -15,6 +15,7 @@
 | [HTTP Authentication](./http-authentication.md) | API2:2023 | 🔄 | [📖](./http-authentication.md) |
 | [User Enumeration](./user-enumeration.md) | API2:2023 | 🔄 | [📖](./user-enumeration.md) |
 | [JWT](./jwt/jwt.md) | API2:2023 | 🔄 | [📖](./jwt/jwt.md) |
+| [Sensitive Claims](./sensitive-claims.md) | API2:2023 | 🔄 | [📖](./sensitive-claims.md) |
 
 ## 🎯 Domain Goal
 

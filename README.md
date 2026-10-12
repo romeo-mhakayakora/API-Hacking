@@ -33,6 +33,7 @@ flowchart TB
         HTTP["🔄 HTTP Authentication"]
         UE["🔄 User Enumeration"]
         JWT["🔄 JWT"]
+        SC["🔄 Sensitive Claims"]
     end
     subgraph 02_ACCESS_CONTROL ["02 — 🔐 Access Control"]
         BOLA["⬜ Broken Object Level Authorization"]
@@ -68,6 +69,7 @@ flowchart TB
     click HTTP href "./01-authentication/http-authentication.md"
     click UE href "./01-authentication/user-enumeration.md"
     click JWT href "./01-authentication/jwt/jwt.md"
+    click SC href "./01-authentication/jwt/sensitive-claims.md"
     click BOLA href "./02-access-control/bola.md"
     click BOPLA href "./02-access-control/bopla.md"
     click BFLA href "./02-access-control/bfla.md"
@@ -120,6 +122,7 @@ flowchart TB
 | [HTTP Authentication](./01-authentication/http-authentication.md) | API2:2023 | 🔄 | [📖](./01-authentication/http-authentication.md) |
 | [User Enumeration](./01-authentication/user-enumeration.md) | API2:2023 | 🔄 | [📖](./01-authentication/user-enumeration.md) |
 | [JWT](./01-authentication/jwt/jwt.md) | API2:2023 | 🔄 | [📖](./01-authentication/jwt/jwt.md) |
+| [Sensitive Claims](./01-authentication/jwt/sensitive-claims.md) | API2:2023 | 🔄 | [📖](./01-authentication/jwt/sensitive-claims.md) |
 
 ### 🎯 Domain Goal
 
