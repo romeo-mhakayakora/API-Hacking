@@ -1,6 +1,6 @@
 # JSON Web Tokens (JWT) & API Session Management — Full Notes
 
-> [⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+> [⬅ Domain](../README.md) | [🏠 Dashboard](../README.md)
 
 **OWASP:** API2:2023 | **Status:** 🔄 In Progress
 
@@ -106,4 +106,4 @@ Asymmetric encryption works like a mailbox slot: anyone (the Auth Server) can pu
 
 ---
 
-[⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+[⬅ Domain](../README.md) | [🏠 Dashboard](../README.md)
