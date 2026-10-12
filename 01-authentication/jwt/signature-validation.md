@@ -1,6 +1,6 @@
 # JWT Issue: Signature Validation Mistakes
 
-> [⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+> [⬅ Domain](../README.md) | [🏠 Dashboard](../README.md)
 
 **OWASP:** API2:2023 | **Status:** 🔄 In Progress
 
@@ -161,4 +161,4 @@ flag = self.db_lookup(username, "flag")
 
 ---
 
-[⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+[⬅ Domain](../README.md) | [🏠 Dashboard](../README.md)
