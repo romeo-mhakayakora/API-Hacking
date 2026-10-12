@@ -1,6 +1,6 @@
 # JWT Issue: Sensitive Information Disclosure via Claims
 
-> [⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+> [⬅ Domain](../README.md) | [🏠 Dashboard](../README.md)
 
 **OWASP:** API2:2023 | **Status:** 🔄 In Progress
 
@@ -39,4 +39,4 @@ This preserves the "claims aren't secret" property of JWTs while keeping actual 
 
 ---
 
-[⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+[⬅ Domain](../README.md) | [🏠 Dashboard](../README.md)
