@@ -34,6 +34,7 @@ flowchart TB
         UE["🔄 User Enumeration"]
         JWT["🔄 JWT"]
         SC["🔄 Sensitive Claims"]
+        SV["🔄 Signature Validation"]
     end
     subgraph 02_ACCESS_CONTROL ["02 — 🔐 Access Control"]
         BOLA["⬜ Broken Object Level Authorization"]
@@ -70,6 +71,7 @@ flowchart TB
     click UE href "./01-authentication/user-enumeration.md"
     click JWT href "./01-authentication/jwt/jwt.md"
     click SC href "./01-authentication/jwt/sensitive-claims.md"
+    click SV href "./01-authentication/jwt/signature-validation.md"
     click BOLA href "./02-access-control/bola.md"
     click BOPLA href "./02-access-control/bopla.md"
     click BFLA href "./02-access-control/bfla.md"
@@ -123,6 +125,7 @@ flowchart TB
 | [User Enumeration](./01-authentication/user-enumeration.md) | API2:2023 | 🔄 | [📖](./01-authentication/user-enumeration.md) |
 | [JWT](./01-authentication/jwt/jwt.md) | API2:2023 | 🔄 | [📖](./01-authentication/jwt/jwt.md) |
 | [Sensitive Claims](./01-authentication/jwt/sensitive-claims.md) | API2:2023 | 🔄 | [📖](./01-authentication/jwt/sensitive-claims.md) |
+| [Signature Validation](./01-authentication/jwt/signature-validation.md) | API2:2023 | 🔄 | [📖](./01-authentication/jwt/signature-validation.md) |
 
 ### 🎯 Domain Goal
 

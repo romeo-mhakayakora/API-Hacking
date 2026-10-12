@@ -16,6 +16,7 @@
 | [User Enumeration](./user-enumeration.md) | API2:2023 | 🔄 | [📖](./user-enumeration.md) |
 | [JWT](./jwt/jwt.md) | API2:2023 | 🔄 | [📖](./jwt/jwt.md) |
 | [Sensitive Claims](./jwt/sensitive-claims.md) | API2:2023 | 🔄 | [📖](./jwt/sensitive-claims.md) |
+| [Signature Validation](./jwt/signature-validation.md) | API2:2023 | 🔄 | [📖](./jwt/signature-validation.md) |
 
 ## 🎯 Domain Goal
 
