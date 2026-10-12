@@ -1,6 +1,6 @@
 # API Attack Stages — Lab Map
 
-> [⬅ Back to API Hacking Dashboard](../README.md)
+> [⬅ Back to API Hacking Dashboard](README.md)
 
 **OWASP:** API Top 10 (2023) | **Status:** 🔄 In Progress
 
