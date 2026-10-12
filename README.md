@@ -32,6 +32,7 @@ flowchart TB
         PRL["🔄 Password Reset Logic"]
         HTTP["🔄 HTTP Authentication"]
         UE["🔄 User Enumeration"]
+        JWT["🔄 JWT"]
     end
     subgraph 02_ACCESS_CONTROL ["02 — 🔐 Access Control"]
         BOLA["⬜ Broken Object Level Authorization"]
@@ -66,6 +67,7 @@ flowchart TB
     click PRL href "./01-authentication/password-reset-logic.md"
     click HTTP href "./01-authentication/http-authentication.md"
     click UE href "./01-authentication/user-enumeration.md"
+    click JWT href "./01-authentication/jwt.md"
     click BOLA href "./02-access-control/bola.md"
     click BOPLA href "./02-access-control/bopla.md"
     click BFLA href "./02-access-control/bfla.md"
@@ -117,6 +119,7 @@ flowchart TB
 | [Password Reset Logic](./01-authentication/password-reset-logic.md) | API2:2023 | 🔄 | [📖](./01-authentication/password-reset-logic.md) |
 | [HTTP Authentication](./01-authentication/http-authentication.md) | API2:2023 | 🔄 | [📖](./01-authentication/http-authentication.md) |
 | [User Enumeration](./01-authentication/user-enumeration.md) | API2:2023 | 🔄 | [📖](./01-authentication/user-enumeration.md) |
+| [JWT](./01-authentication/jwt.md) | API2:2023 | 🔄 | [📖](./01-authentication/jwt.md) |
 
 ### 🎯 Domain Goal
 
